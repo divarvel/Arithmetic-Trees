@@ -1,14 +1,15 @@
 Arithmetic Trees
 ================
 
-**Purpose** This is just the port of Java practicals at École Centrale de
+## Purpose
+This is just the port of Java practicals at École Centrale de
 Nantes. The goal is to describe polynomials as trees, then evaluate them or derive
 them. Since I'm fairly new to Haskell, this code has been written just for
 fun. Comments are welcome !
 
-**Usage**
+## Usage
 
-..Define a tree..
+### Define a tree
 
     let plus = Binary Plus (Leaf (Val 2)) (Leaf X) -- (2 + x)
     let cos = Unary Cos (Leaf X)  -- cos(x)
@@ -26,20 +27,20 @@ notation.
 
    ((42 + 10) * x)
 
-..Evaluate a tree..
+### Evaluate a tree
 
    eval (Binary Pow (Leaf (Val x)) (Leaf (Val 2))) -- 4
 
-..Evaluate a tree for a given value..
+### Evaluate a tree for a given value
 
    eval (replace (Binary Pow (Leaf (Val x)) (Leaf (Val 2))) 2) -- 4
 
 
-..Derive a tree..
+### Derive a tree
 
    derive (Binary Plus (Binary Times (Leaf (X)) (Leaf (Val 12))) (Leaf (X)))
 
-..Clean a tree..
+### Clean a tree
 The derived tree is often unnecessarily cluttered. You can clean it by
 simplifying (`1*x`, `0*x`, `0+x` and so on).
 
