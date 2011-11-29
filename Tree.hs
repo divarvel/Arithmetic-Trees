@@ -10,11 +10,11 @@ instance Show BinaryOp where
   show Pow = "^"
 
 applyBin :: BinaryOp -> Float -> Float -> Float
-applyBin Plus  a b = a + b
-applyBin Minus a b = a - b
-applyBin Times a b = a * b
-applyBin Div   a b = a / b
-applyBin Pow a b  = a ^ (truncate b)
+applyBin Plus  = (+)
+applyBin Minus = (-)
+applyBin Times = (*)
+applyBin Div   = (/)
+applyBin Pow   = (. truncate) . (^)
 
 deriveBin :: BinaryOp -> Tree -> Tree -> Tree
 deriveBin Plus l r = Binary Plus (derive l) (derive r)
