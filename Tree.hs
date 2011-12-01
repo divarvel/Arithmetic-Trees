@@ -1,3 +1,5 @@
+module Tree where
+
 import Data.List
 
 data BinaryOp = Plus | Minus | Times | Div | Pow
@@ -108,3 +110,4 @@ clean (Binary Div l (Leaf (Val 1))) = clean l
 clean (Binary op l r) = Binary op (clean l) (clean r)
 clean (Unary op t) = Unary op (clean t)
 clean (Leaf v) = Leaf v
+
