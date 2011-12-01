@@ -35,10 +35,10 @@ unaryOp = choice [ Cos <$ string "cos"
                  , Tan <$ string "tan"
                  ] <?> "Operator which takes one argument"
 
-value :: Parser Tree
+value :: Parser Tree
 value = Leaf X <$ char 'x'
     <|> liftA (Leaf . Val) floatValue
-    <?> "A simple value (litteral or variable)"
+    <?> "A simple value (literal or variable)"
 
 floatValue :: Parser Float
 floatValue = do
